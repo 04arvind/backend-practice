@@ -20,7 +20,8 @@ import fs from "fs";
           console.log("File is uploaded on cloudnary : ",response.url);
           return response;
         } catch (error) {
-            fs.unlinkSync(localFilePath) // remove the locally saved temporary file
+            fs.unlinkSync(localFilePath) // remove the locally saved temporary files as the upload operation got failed 
+            return null;
         }
     }
     
@@ -56,3 +57,5 @@ import fs from "fs";
     
     console.log(autoCropUrl);    
 })();
+
+export {uploadOnCloudinary}
